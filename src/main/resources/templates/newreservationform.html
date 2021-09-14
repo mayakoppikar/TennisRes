@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CHOA Tennis | New Reservation</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+    <style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+    <link rel="shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYVt2beTT20Fgcfm-J_gWqb_cNE9gdRqYJg&usqp=CAU">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background:rgb(242, 238, 233);">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="/home"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYVt2beTT20Fgcfm-J_gWqb_cNE9gdRqYJg&usqp=CAU"
+            height="30px" width="30px"></a>
+    <a class="navbar-brand" href="/home">Commonwealth HOA</a>
+
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${(loginstatus == 'false')}">
+            <img style="width: 30px;height: 30px;" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg">
+            <a style="color:rgb(0,0,0);" href="/signin">Sign In </a>
+        </button>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <img style="width: 30px;height: 30px;" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg">
+            <a style="color:rgb(0,0,0);" href="/logout">Log Out</a>
+        </button>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Help</button>
+        <div class="dropdown-content">
+            <a href="/help.html">Help</a>
+            <a href="/courtrules">Rules</a>
+            <a href="/courtfaqs">FAQ</a>
+        </div>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <a style="color:rgb(0,0,0);" href="/addreservation">Add Reservation</a>
+        </button>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <a style="color:rgb(0,0,0);" href="/myreservations">My Reservations</a>
+        </button>
+    </div>
+
+
+
+</nav>
+
+<div class="container">
+
+    <div style="height:325px;height:325px;width: 300px;margin-left: 30%;margin-top: 5%;border: 2px solid rgb(0,0,0);" class="container">
+        <h4 style="margin-top:10px;">Add Reservation:</h4>
+        <form th:action="@{/addreservation}" th:object="${ReservationForm}" method="post">
+
+            <label for="resdate"  ><b>Date:</b> </label>
+            <input type="date" id="resdate" name="resdate">
+            <br>
+
+            <label for="restime"><b>Time:</b></label>
+            <select name="restime" id="restime">
+                <option value="07:00:00">7:00 AM</option>
+                <option value="07:30:00">7:30 AM</option>
+                <option value="08:00:00">8:00 AM</option>
+                <option value="08:30:00">8:30 AM</option>
+                <option value="09:00:00">9:00 AM</option>
+                <option value="09:30:00">9:30 AM</option>
+                <option value="10:00:00">10:00 AM</option>
+                <option value="10:30:00">10:30 AM</option>
+                <option value="11:00:00">11:00 AM</option>
+                <option value="11:30:00">11:30 AM</option>
+                <option value="12:00:00">12:00 PM</option>
+                <option value="12:30:00">12:30 PM</option>
+                <option value="13:00:00">1:00 PM</option>
+                <option value="13:30:00">1:30 PM</option>
+                <option value="14:00:00">2:00 PM</option>
+                <option value="14:30:00">2:30 PM</option>
+                <option value="15:00:00">3:00 PM</option>
+                <option value="15:30:00">3:30 PM</option>
+                <option value="16:00:00">4:00 PM</option>
+                <option value="16:30:00">4:30 PM</option>
+                <option value="17:00:00">5:00 PM</option>
+                <option value="17:30:00">5:30 PM</option>
+                <option value="18:00:00">6:00 PM</option>
+                <option value="18:30:00">6:30 PM</option>
+                <option value="19:00:00">7:00 PM</option>
+                <option value="19:30:00">7:30 PM</option>
+                <option value="20:00:00">8:00 PM</option>
+                <option value="20:30:00">8:30 PM</option>
+                <option value="21:00:00">9:00 PM</option>
+            </select>
+
+<span>
+     <br>
+    <b>
+Timespan:
+        </b>
+</span>
+            <br><input type="radio" id="thirtymin" name="timespan" value="30">
+            <label for="thirtymin">30 Minutes</label><br>
+            <input type="radio" id="sixtymin" name="timespan" value="60">
+            <label for="sixtymin">60 Minutes</label><br>
+
+
+            <span>
+    <b>
+Location:
+        </b>
+</span>
+<br>
+           <input type="radio" id="KB1" name="location" value="KB1">
+            <label for="KB1" style="{margin-right:2px;}">KB 1</label>
+            <span>
+            <input type="radio" id="KB2" name="location" value="KB2">
+            <label for="KB2" style="{margin-right:2px;}">KB 2</label></span>
+           <input type="radio" id="BW1" name="location" value="BW1">
+            <label for="BW1" style="{margin-right:2px;}">BW 1</label><span></span>
+            <input type="radio" id="BW2" name="location" value="BW2">
+            <label for="BW2">BW 2</label></span>
+
+            <br>
+
+
+            <label for="restype">Reservation Type:</label>
+
+            <select name="restype" id="restype">
+                <option value="m">Member Use</option>
+                <option value="p">Private Lesson</option>
+                <option value="l">League</option>
+                <option value="gl">Group Lesson</option>
+                <option value="e">Event</option>
+            </select>
+
+
+            <p id="signin" style="{margin-top:10px; margin-bottom:10px;}"> <input type="submit" value="Submit"/></p>
+
+
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

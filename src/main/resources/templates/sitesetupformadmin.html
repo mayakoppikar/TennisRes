@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CHOA Tennis | Site Setup</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+    <style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+    <link rel="shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYVt2beTT20Fgcfm-J_gWqb_cNE9gdRqYJg&usqp=CAU">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background:rgb(242, 238, 233);">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="/home"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYVt2beTT20Fgcfm-J_gWqb_cNE9gdRqYJg&usqp=CAU"
+            height="30px" width="30px"></a>
+    <a class="navbar-brand" href="/home">Commonwealth HOA</a>
+
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${(loginstatus == 'false')}">
+            <img style="width: 30px;height: 30px;" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg">
+            <a style="color:rgb(0,0,0);" href="/signin">Sign In </a>
+        </button>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <img style="width: 30px;height: 30px;" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg">
+            <a style="color:rgb(0,0,0);" href="/logout">Log Out</a>
+        </button>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Help</button>
+        <div class="dropdown-content">
+            <a href="/help.html">Help</a>
+            <a href="/courtrules">Rules</a>
+            <a href="/courtfaqs">FAQ</a>
+        </div>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <a style="color:rgb(0,0,0);" href="/addreservation">Add Reservation</a>
+        </button>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <a style="color:rgb(0,0,0);" href="/myreservations">My Reservations</a>
+        </button>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Settings</button>
+        <div class="dropdown-content">
+            <a href="/sitesetup">Site Setup</a>
+            <a href="/courttimings">Court Timings</a>
+            <a href="/addfaq">FAQs</a>
+            <a href="/addrule">Court Rules</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Tools</button>
+        <div class="dropdown-content">
+            <a href="/blockclear">Block Clear</a>
+            <a href="/news">News/Notices</a>
+            <a href="/export">Export Data</a>
+            <a  href="/userlist">User List</a>
+        </div>
+    </div>
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);">
+            <a style="color:rgb(0,0,0);" href="/reports">Reports</a>
+        </button>
+    </div>
+
+</nav>
+
+
+<div class="container">
+    <h3 style="margin-top:20px">Site Setup:</h3>
+
+    <div>
+        <p style="margin-top:10px">Edit site setup controls here. The grey placeholders are the values your system is currently set to. Please, whenever you submit, check 'unblock same day reserving' even if that is what the system is already set to.</p>
+    </div>
+    <form th:action="@{/sitesetup}" th:object="${SetupForm}" method="post" style="border: 2px solid rgb(69,64,64); margin-left:5px; margin-right:5px; margin-top: 10px; margin-bottom:5px;">
+        <br>
+        <label for="daysinadvancebooking">Days in advance courts can be booked: </label>
+        <input type="text" id="daysinadvancebooking" name="daysinadvancebooking" th:placeholder="${defaultsitesettings.daysinadvancebooking}">
+<br>
+        <label for="reservationblocklimit">Reservation block limit : </label>
+        <input type="text" id="reservationblocklimit" name="reservationblocklimit" th:placeholder="${defaultsitesettings.reservationblocklimit}">
+        <br>
+        <label for="samedaywindowforreserving">Same day window for reserving:  </label>
+        <input type="text" id="samedaywindowforreserving" name="samedaywindowforreserving" th:placeholder="${defaultsitesettings.samedaywindowforreserving}">
+        <br>
+        <label for="blocksamedayreserving">Block same day reserving:</label>
+        <input type="radio" id="blocksamedayreserving" name="blocksamedayreserving" value="block">
+        <br>
+        <label for="unblocksamedayreserving">Unblock same day reserving:</label>
+        <input type="radio" id="unblocksamedayreserving" name="blocksamedayreserving" value="unblock">
+        <br>
+        <label for="samedaywindowcancel">Same day window for cancelling: </label>
+        <input type="text" id="samedaywindowcancel" name="samedaywindowcancel" th:placeholder="${defaultsitesettings.samedaywindowcancel}">
+        <br>
+        <label for="resallowedperday">Reservations allowed per day: </label>
+        <input type="text" id="resallowedperday" name="resallowedperday" th:placeholder="${defaultsitesettings.resallowedperday}">
+        <br>
+
+        <label for="resallowedperweek">Reservations allowed per week:</label>
+        <input type="text" id="resallowedperweek" name="resallowedperweek" th:placeholder="${defaultsitesettings.resallowedperweek}">
+
+        <br>
+        <input type="submit" name="submit" value="Submit" id="submit">
+    </form>
+</div>
+
+
+</body>
+</html>

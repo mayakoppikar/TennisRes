@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CHOA Tennis | Help</title>
+    <style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <link rel="shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYVt2beTT20Fgcfm-J_gWqb_cNE9gdRqYJg&usqp=CAU">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background:rgb(242, 238, 233);">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="/home"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYVt2beTT20Fgcfm-J_gWqb_cNE9gdRqYJg&usqp=CAU"
+            height="30px" width="30px"></a>
+    <a class="navbar-brand" href="/home">Commonwealth HOA</a>
+
+
+
+    <div>
+        <button style=" margin:5px; background:rgb(255,255,255);">
+            <img style="width: 30px;height: 30px;" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg">
+            <a style="color:rgb(0,0,0);" href="/signin">Sign In </a>
+        </button>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Help</button>
+        <div class="dropdown-content">
+            <a href="/help.html">Help</a>
+            <a href="/courtrules">Rules</a>
+            <a href="/courtfaqs">FAQ</a>
+        </div>
+    </div>
+
+</nav>
+
+<div class="container" style="margin-top:20px;">
+    <div style="margin-top: 20px;">
+        <h5>Signing in to the System</h5>
+        <p>Anyone can view the current status of court reservations at Commonwealth HOA Courts but if you want to reserve a court online you have to sign in with your user ID and password. You can change your password at any time by clicking on the Change Password button on the login page. By signing into the system with your own ID you can reserve courts under your own name and your reservation will be secure. Everyone will be able to see your reservation but no one will be able to change it or reserve that court for the time period you have it reserved. If you have forgotten your user ID and/or password or don't have one yet please contact your administrator, cwhoatennis@gmail.com.</p>
+    </div>
+    <div>
+        <h5>Navigating the Reservation Sheet</h5>
+        <p> When you first open up the reservation sheet it defaults to today's date. If you want to see and/or make a reservation for another day you can move to that day in one of two ways:.</p>
+        <ol type="1">
+            <li>You can step one day at a time either forward or backward by clicking on the left or right arrows next to the calendar icon just below the day, or</li>
+            <li>Use the calendar tool. Clicking on the calendar icon will bring up a calendar popup (if you have popup blocking software you will need to configure it to allow popups on this site if you want to use the calendar). Simply click on the day you want and the reservation sheet will jump to that day.</li>
+        </ol>
+    </div>
+    <div>
+        <h5>Reserving a Court</h5>
+        <p>Reserving a court is simple. Just follow these three easy steps:</p>
+        <ul>
+            <li>Using the <a href="/home">reservation sheet</a>, navigate to the day you want to reserve the court</li>
+            <li>Move your mouse pointer over the block representing the court number and time you want to start your reservation and then click</li>
+            <li>Complete the reservation form by checking the starting time (and correcting if wrong), select the reservation length and then click on the <i>Make Reservation</i> button</li>
+        </ul>
+    </div>
+    <div>
+        <h5>Changing and/or Deleting an Existing Reservation</h5>
+        <p>Changing a reservation is a simple as making one: </p>
+        <ul>
+            <li>Using the <a href="/home">reservation sheet</a>, navigate to the day you have a reservation</li>
+            <li>Move your mouse pointer over any of the blocks inside your reservation range and then click</li>
+            <li>Move your mouse pointer over any of the blocks inside your reservation range and then click</li>
+            <li>To change the reservation make your changes to the starting time and length and then click on the <i>Save Changes</i> button</li>
+            <li>To cancel the reservation click on the <i>Cancel Reservation</i> button</li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+
+#memberusecode{
+background:rgb(179, 4, 4);
+}
+
+#privatelessoncode{
+background:rgb(0, 66, 4);
+}
+
+#leaguecode{
+background:rgb(97, 111, 128);
+}
+
+#grouplessoncode{
+background:rgb(0,0,0);
+}
+
+#eventcode{
+background:rgb(4, 24, 207);
+
+
+
+
+
+
+
+
+
+
+
+
+.navvy{
+   height:30px;
+}
+
+.tableres{
+border: 1px solid rgb(0,0,0);
+margin-left: 2px;
+margin-top: 2px;
+margin-bottom: 2px;
+margin-right: 2px;
+}
+
+#backy{
+background:rgb(214, 191, 195);
+}
+
+.daychangebutton{
+height:100%;
+width:100%;
+}
+
+.daychange{
+height: 40px;
+width:80px;
+}
+
+.reddy{
+color: rgb(255,0,0);
+background: rgb(255,0,0);
+}
+
+.buttonsnav{
+    margin:5px;
+    background:rgb(255,255,255);
+}
+
+#signinbutton {
+width: 30px;height: 30px;
+}
+
+#signinbuttontwo {
+width: 30px;
+height: 30px;
+}
+
+#reports{
+width: 30px;
+height: 30px;
+}
+
+#signinbuttonthree {
+width: 30px;
+height: 30px;
+}
+
+
+#linktable{
+    background:rgb(255,255,255);
+
+}
+
+#newreservationbutton{
+width: 30px;
+height: 30px;
+}
+
+.linksy{
+background: rgb(237, 218, 97);
+}
+
+#logoutbutton {
+width: 30px;
+height: 30px;
+}
+
+#helpbutton {
+width: 20px;height: 17px;
+}
+
+.navtext{
+color:rgb(0,0,0);
+}
+
+
+#welcomemessage{
+    margin-left:50%;
+    margin: 20px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+height:30px;
+width:30px;
+ padding: 16px;
+  font-size: 16px;
+    border: none;
+     margin:5px;
+      background:rgb(255,255,255);
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+.courttable{
+
+border: 2px solid rgb(97, 92, 92);
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+.timeblock{
+background: rgb(235, 191, 124);
+}
+
+.titletab{
+background: rgb(209, 232, 176);
+
+}
+
+
+#beforered{
+color: rgb(255,0,0);
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+}
+
+#sibox{
+height:325px;
+height:325px;
+width: 300px;
+margin-left: 30%;
+margin-top: 5%;
+border: 2px solid rgb(0,0,0);
+}
+
+.querytabi{
+margin-left:50%;
+margin-top: 20px;
+color: rgb(66, 68, 74);
+}

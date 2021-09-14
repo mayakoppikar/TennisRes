@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CHOA Tennis | Reports</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css"/>
+    <style>
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+    <link rel="shortcut icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYVt2beTT20Fgcfm-J_gWqb_cNE9gdRqYJg&usqp=CAU">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background:rgb(242, 238, 233);">
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <a class="navbar-brand" href="/home"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGYVt2beTT20Fgcfm-J_gWqb_cNE9gdRqYJg&usqp=CAU"
+            height="30px" width="30px"></a>
+    <a class="navbar-brand" href="/home">Commonwealth HOA</a>
+
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${(loginstatus == 'false')}">
+            <img style="width: 30px;height: 30px;" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg">
+            <a style="color:rgb(0,0,0);" href="/signin">Sign In </a>
+        </button>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <img style="width: 30px;height: 30px;" src="https://png.pngtree.com/png-vector/20191110/ourmid/pngtree-avatar-icon-profile-icon-member-login-vector-isolated-png-image_1978396.jpg">
+            <a style="color:rgb(0,0,0);" href="/logout">Log Out</a>
+        </button>
+    </div>
+
+
+    <div class="dropdown">
+        <button class="dropbtn">Help</button>
+        <div class="dropdown-content">
+            <a href="/help.html">Help</a>
+            <a href="/courtrules">Rules</a>
+            <a href="/courtfaqs">FAQ</a>
+        </div>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <a style="color:rgb(0,0,0);" href="/addreservation">Add Reservation</a>
+        </button>
+    </div>
+
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);" th:if="${!(loginstatus == 'false')}">
+            <a style="color:rgb(0,0,0);" href="/myreservations">My Reservations</a>
+        </button>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Settings</button>
+        <div class="dropdown-content">
+            <a href="/sitesetup">Site Setup</a>
+            <a href="/courttimings">Court Timings</a>
+            <a href="/addfaq">FAQs</a>
+            <a href="/addrule">Court Rules</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Tools</button>
+        <div class="dropdown-content">
+            <a href="/blockclear">Block Clear</a>
+            <a href="/news">News/Notices</a>
+            <a href="/export">Export Data</a>
+            <a  href="/userlist">User List</a>
+        </div>
+    </div>
+    <div>
+        <button style="margin:5px; background:rgb(255,255,255);">
+            <a style="color:rgb(0,0,0);" href="/reports">Reports</a>
+        </button>
+    </div>
+
+</nav>
+
+<div class="container" style="border: 2px solid rgb(0,0,0); margin-top:20px;">
+
+<div class="container">
+
+    <div>
+        <h5 style="margin-top: 20px;">Report Form:</h5>
+    </div>
+   <br>
+
+</div>
+<!--</form>-->
+
+    <form th:action="@{/reports}" th:object="${ReportsF}" method="post">
+
+
+    <label for="groupedbyname">Reservation Grouped by name</label>
+
+    <select name="rf" id="groupedbyname">
+        <option value="sgroupedbyname">Last 7 days</option>
+        <option value="fgroupedbyname">Last 14 days</option>
+        <option value="tgroupedbyname">Last 30 days</option>
+        <option value="ngroupedbyname">Last 90 days</option>
+        <option value="ygroupedbyname">Last 365 days</option>
+    </select>
+
+        <input type="submit" name="submit" value="Submit">
+</form>
+
+    <form th:action="@{/reports}" th:object="${ReportsF}" method="post">
+
+
+        <label for="groupedbyreserver">Reservation Grouped by reserver</label>
+
+        <select name="rf" id="groupedbyreserver">
+            <option value="sgroupedbyreserver">Last 7 days</option>
+            <option value="fgroupedbyreserver">Last 14 days</option>
+            <option value="tgroupedbyreserver">Last 30 days</option>
+            <option value="ngroupedbyreserver">Last 90 days</option>
+            <option value="ygroupedbyreserver">Last 365 days</option>
+        </select>
+
+        <input type="submit" name="submit" value="Submit">
+    </form>
+
+    <form th:action="@{/reports}" th:object="${ReportsF}" method="post">
+
+
+        <label for="countbyname">Reservation count by name</label>
+
+        <select name="rf" id="countbyname">
+            <option value="scountbyname">Last 7 days</option>
+            <option value="fcountbyname">Last 14 days</option>
+            <option value="tcountbyname">Last 30 days</option>
+            <option value="ncountbyname">Last 90 days</option>
+            <option value="ycountbyname">Last 365 days</option>
+        </select>
+
+        <input type="submit" name="submit" value="Submit">
+    </form>
+
+    <form th:action="@{/reports}" th:object="${ReportsF}" method="post">
+
+
+        <label for="countbyreserver">Reservation count by reserver</label>
+
+        <select name="rf" id="countbyreserver">
+            <option value="scountbyreserver">Last 7 days</option>
+            <option value="fcountbyreserver">Last 14 days</option>
+            <option value="tcountbyreserver">Last 30 days</option>
+            <option value="ncountbyreserver">Last 90 days</option>
+            <option value="ycountbyreserver">Last 365 days</option>
+        </select>
+
+        <input type="submit" name="submit" value="Submit">
+    </form>
+
+
+    <form th:action="@{/reports}" th:object="${ReportsF}" method="post">
+
+
+        <label for="userlist">User list</label>
+
+
+
+        <input type="submit" name="submit" value="userlist" id="userlist">
+    </form>
+
+</div>
+
+
+</body>
+</html>
